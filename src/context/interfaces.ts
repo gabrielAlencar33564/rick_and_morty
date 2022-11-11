@@ -12,11 +12,10 @@ export interface InfoProps {
 }
 
 export interface IResults {
-    id: number | string;
+    id?: number | string;
     name: string;
     status: string;
     species: string;
-    gender: string;
     origin: {
         name: string;
     }
