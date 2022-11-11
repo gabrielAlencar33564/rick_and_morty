@@ -1,10 +1,11 @@
+import { RickAndMortyProvider } from "./context";
 
 
 function App() {
   return (
-    <div>
+    <RickAndMortyProvider>
       
-    </div>
+    </RickAndMortyProvider>
   );
 }
 
