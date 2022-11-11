@@ -1,5 +1,4 @@
-
-import { List } from '../../components/List/index';
+import { List } from '../../components/list/index';
 
 export const Dashboard = () => {
     return (
