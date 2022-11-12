@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "RickAndMorty";
+  src: url(../fonts/RickAndMorty/get_schwifty.ttf) format("truetype");
+}
+
+body {
+  background-image: url(../assets/img/1200x675mf.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+:root {
+  --font-title-card: "RickAndMorty", sans-serif;
+  --font-info-card: "Patrick Hand", sans-serif;
+
+  --color-g1: #8bcf21;
+  --color-g2: #2f9331;
+  --color-r1: rgba(255, 0, 0);
+}
