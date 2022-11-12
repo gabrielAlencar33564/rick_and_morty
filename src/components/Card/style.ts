@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const PersonCard = styled.li`
+interface Props {
+  status: string;
+}
+
+export const PersonCard = styled.li<Props>`
   width: 15.7rem;
   height: 20rem;
   padding: 1rem 0 1rem 1rem;
@@ -9,13 +13,21 @@ export const PersonCard = styled.li`
   flex-direction: column;
   gap: 10px;
 
-  border: 0.3rem solid rgba(139, 207, 33, 0.5);
+  border: 0.3rem solid
+    ${(props) =>
+      props.status === "Alive"
+        ? "rgba(139, 207, 33, 0.5)"
+        : "rgba(255, 0, 0, 0.5)"};
   border-radius: 1rem;
 
   background: radial-gradient(
     circle,
     rgba(0, 0, 0, 0) 0%,
-    rgba(139, 207, 33, 0.5072115384615384) 100%
+    ${(props) =>
+        props.status === "Alive"
+          ? "rgba(139, 207, 33, 0.5)"
+          : "rgba(255, 0, 0, 0.5)"}
+      100%
   );
 
   cursor: pointer;
@@ -30,13 +42,20 @@ export const PersonCard = styled.li`
     overflow: hidden;
     text-overflow: ellipsis;
 
-    color: var(--color-v1);
+    color: ${(props) =>
+      props.status === "Alive"
+        ? "rgba(139, 207, 33, 1)"
+        : "rgba(255, 0, 0, 1)"};
   }
 
   div {
     width: 14rem;
     height: 13.5rem;
-    border: rgba(139, 207, 33, 0.7) solid 0.3rem;
+    border: 0.3rem solid
+      ${(props) =>
+        props.status === "Alive"
+          ? "rgba(139, 207, 33, 0.7)"
+          : "rgba(255, 0, 0, 0.7)"};
     overflow: hidden;
     border-radius: 6px;
 
@@ -49,15 +68,24 @@ export const PersonCard = styled.li`
   }
 
   &:hover {
-    border-color: var(--color-v1);
+    border-color: ${(props) =>
+      props.status === "Alive"
+        ? "rgba(139, 207, 33, 1)"
+        : "rgba(255, 0, 0, 1)"};
     background: radial-gradient(
       circle,
       rgba(0, 0, 0, 0) 0%,
-      rgba(139, 207, 33, 0.6) 100%
+      ${(props) =>
+        props.status === "Alive"
+          ? "rgba(139, 207, 33, 0.6)"
+          : "rgba(255, 0, 0, 0.6)"}100%
     );
 
     div {
-      border-color: var(--color-v1);
+      border-color: ${(props) =>
+      props.status === "Alive"
+        ? "rgba(139, 207, 33, 1)"
+        : "rgba(255, 0, 0, 1)"};
 
       img {
         -webkit-transform: scale(1.1);
@@ -69,6 +97,9 @@ export const PersonCard = styled.li`
   span {
     font-size: 1.5rem;
     font-family: var(--font-info-card);
-    color: #8bcf21;
+    color: ${(props) =>
+      props.status === "Alive"
+        ? "rgba(139, 207, 33, 1)"
+        : "rgba(255, 0, 0, 1)"};
   }
 `;

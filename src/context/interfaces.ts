@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 
 export interface IProvider {
     children: ReactNode;
@@ -31,4 +31,8 @@ export interface DataProps {
 
 export interface IContext {
     personList: IResults[];
+    onNext: boolean;
+    onPrev: boolean;
+    setCount: (count: number) => void;
+    count: number;
 }
