@@ -10,17 +10,21 @@ export const HeaderContainer = styled.header`
   nav {
     display: flex;
     justify-content: space-between;
+    flex-direction: row-reverse;
     padding: 0 4.4rem 0 4.4rem;
     margin-bottom: 10px;
 
-    a {
+    button {
       padding: 8px;
       border-radius: 5px;
       border: 3px solid rgba(139, 207, 33, 0.5);
-      color: var(--color-v1);
+      color: var(--color-g1);
+      background-color: transparent;
+
+      cursor: pointer;
 
       &:hover {
-        border-color: var(--color-v1);
+        border-color: var(--color-g1);
       }
     }
   }
