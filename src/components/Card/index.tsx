@@ -1,13 +1,21 @@
-import { IResults } from '../../context/interfaces';
+import { IResults } from "../../context/interfaces";
+import { PersonCard } from "./style";
+
+// interface teste extends React.LiHTMLAttributes<HTMLLIElement> {
+//   style: React.CSSProperties;
+// }
 
 export const Card = ({ image, name, origin, species, status }: IResults) => {
+  return (
+    <PersonCard >
+      <h2>{name}</h2>
+      <div>
+        <img src={image} alt={name} />
+      </div>
 
-    return (
-        <li>
-            <h2>{name}</h2>
-            <img src={image} alt={name} />
-            
-            <span>{origin.name} - {species}</span>
-        </li>
-    )
-}
+      <span>
+        {origin.name} - {species}
+      </span>
+    </PersonCard>
+  );
+};
