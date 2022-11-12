@@ -11,11 +11,17 @@ export const useRickAndMortyContext = (): IContext => {
 
 export const RickAndMortyProvider = ({ children }: IProvider) => {
   const [personList, setPersonList] = useState<IResults[]>([]);
+  const [count, setCount] = useState<number>(1);
+  const [onNext, setOnNext] = useState<boolean>(false);
+  const [onPrev, setOnPrev] = useState<boolean>(true);
 
   const getCharacter = async () => {
     try {
-      const { data }: DataProps = await api.get("/character");
+      const { data }: DataProps = await api.get(`/character/?page=${count}`);
       setPersonList(data.results);
+      setOnNext(!data.info.next);
+      setOnPrev(!data.info.prev);
+
     } catch (error) {
       console.error(error);
     }
@@ -23,11 +29,15 @@ export const RickAndMortyProvider = ({ children }: IProvider) => {
 
   useEffect(() => {
     getCharacter();
-  }, []);
+  }, [count]);
 
   return (
     <RickAndMortyContext.Provider value={{
-        personList
+        personList,
+        onNext,
+        onPrev,
+        setCount,
+        count
     }}>
       {children}
     </RickAndMortyContext.Provider>
