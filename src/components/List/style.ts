@@ -5,4 +5,5 @@ export const ListPersons = styled.ul`
   flex-wrap: wrap;
   gap: 5rem;
   justify-content: center;
+  margin-bottom: 1rem;
 `;
